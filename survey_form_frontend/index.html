@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <h1 id="title">Tanay's Friendship feedback</h1>
+    <p id="description">Thankyou for taking your time to help me improve myself</p>
+    <form id="survey-form" action="http://localhost:3000/submit" method="POST">
+
+      <div class="form-group">
+      <label for="name">Name:</label>
+<input id="name" type="text" name="name" placeholder="e.g., Tanay Singh" required>
+</div>
+
+<div class="form-group">
+<label for="email">E-mail:</label>
+<input id="email" type="email" name="email" placeholder="e.g., example@gmail.com" required>
+</div>
+
+<div class="form-group">
+  <label for="number">Age:</label>
+  <input id="number" type="number" name="number" placeholder="e.g., 21" min="0" max="120" step="1" required>
+  </div>
+
+<div class="form-group">
+  <p>Which option best describes me?</p>
+  <select name="character" id="dropdown" required>
+    <option value="" disabled selected>Select an option</option>
+    <option value="Humble">Humble</option>
+    <option value="Arrogant">Arrogant</option>
+    <option value="Polite">Polite</option>
+    <option value="Egoistisc">Egoistic</option>
+  </select>
+</div>
+
+<fieldset>
+  <legend>Would you like to work with me, if given a choice?</legend>
+  <input type="radio" id="Definitely" name="choice" value="Definitely" checked>
+  <label for="Definitely">Definitely</label>
+
+  <input type="radio" id="Maybe" name="choice" value="Maybe">
+  <label for="Maybe">Maybe</label>
+
+  <input type="radio" id="No" name="choice" value="No">
+  <label for="No">No</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>What would you like me to improve?(Check all that apply)</legend>
+    <input type="checkbox" id="comm" name="improve[]" value="communication skills">
+    <label for="comm">Communication Skills</label><br>
+
+    <input type="checkbox" id="listen" name="improve[]" value="listening to others">
+    <label for="listen">Listening to others</label><br>
+
+    <input type="checkbox" id="patience" name="improve[]" value="patience">
+    <label for="patience">Patience</label><br>
+
+    <input type="checkbox" id="time" name="improve[]" value="time management">
+    <label for="time">Time Management</label><br>
+
+    <input type="checkbox" id="cons" name="improve[]" value="consistency">
+    <label for="cons">Consistency</label><br>
+
+    <input type="checkbox" id="Confidence" name="improve[]" value="confidence">
+    <label for="Confidence">Confidence</label><br>
+
+    <input type="checkbox" id="work" name="improve[]" value="work discipline">
+    <label for="work">Work discipline</label><br>
+
+    <input type="checkbox" id="open" name="improve[]" value="open mindedness">
+    <label for="open">Being more open-minded</label><br>
+
+    <input type="checkbox" id="anger" name="improve[]" value="anger control">
+    <label for="anger">Anger control</label><br>
+
+    <input type="checkbox" id="decision" name="improve[]" value="decision making">
+    <label for="decision">Decision Making</label><br>
+  </fieldset>
+
+  <div>
+  <p>Any suggestion or message you would like to leave?</p>
+  <textarea id="comments" name="comments" placeholder="Write your suggestions here..." rows="4" cols="40"></textarea>
+  </div>
+
+  <br>
+  <button id="submit" type="submit">Submit</button>
+
+    </form>
+    <script>
+      document.getElementById("survey-form").addEventListener("submit", function(e) {
+       const age = document.getElementById("number").value;
+
+       if (age < 10 || age > 100) {
+          alert("Please enter a valid age between 10 and 100");
+          e.preventDefault();
+       }
+       
+      });
+    </script>
+  </body>
+</html>
